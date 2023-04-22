@@ -111,6 +111,8 @@ export default {
         }
     }
     .wa-collapse-describe {
+        color: #888;
+        font-size: 14px;
         padding: 0 20px;
         margin-top: 5px;
     }

@@ -32,8 +32,8 @@ export default {
 <style lang="scss" scoped>
 .list-container {
     flex: 1;
-    height: calc(100% - 60px);
-    padding: 40px 0 20px;
+    height: calc(100% - 40px);
+    padding: 20px 0 20px;
     box-sizing: border-box;
     .wa-collapse {
         height: 100%;

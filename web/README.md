@@ -1,5 +1,8 @@
 # note-system-web
 
+> env
+1. node 16.6.0+
+
 [参考文献]
 
 Editor Markdown API-URL

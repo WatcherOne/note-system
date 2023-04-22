@@ -1,12 +1,10 @@
 <template>
-    <div class="header-wrapper">
-        <div>sdsd</div>
-    </div>
+    <div class="header-wrapper"></div>
 </template>
 
 <script>
 export default {
-    name: 'note-header'
+    name: 'wa-header'
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
     <div class="common-container layout-container">
         <div class="header-container">
-            <note-header></note-header>
+            <wa-header></wa-header>
         </div>
         <div class="main-container">
             <router-view></router-view>
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import NoteHeader from './header.vue'
+import WaHeader from './header.vue'
 
 export default {
-    components: { NoteHeader }
+    components: { WaHeader }
 }
 </script>
 
