@@ -1,0 +1,116 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+}
+
+a {
+    text-decoration: none
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.common-container {
+    height: 100%;
+}
+
+.content-container {
+    height: 100%;
+    padding: 30px 10% 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width:1200px) {
+    .content-container { 
+        padding: 30px 20% 0;
+    }
+}
+
+.wat-input {
+    outline: none;
+    border: 1px solid $borderColor;
+    height: 35px;
+    line-height: 34px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    &:focus {
+        border-color: $primaryColor;
+    }
+}
+
+.wat-select {
+    outline: none;
+    border: 1px solid $primaryColor;
+    height: 35px;
+    line-height: 34px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color: $primaryColor;
+    cursor: pointer;
+}
+
+.wat-button {
+    height: 35px;
+    line-height: 34px;
+    color: $textLightColor;
+    background-color: $primaryColor;
+    border-color: $primaryColor;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0 15px;
+    &:hover {
+        background-color: $secondaryColor;
+        border-color: $secondaryColor;
+    }
+    &+.wat-button {
+        margin-left: 5px;
+    }
+    &.info {
+        color: #606266;
+        border-color: $borderColor;
+        background-color: $white;
+        &:hover {
+            color: $primaryColor;
+            border-color: $primaryColor;
+            background-color: #ecf5ff;
+        }
+    }
+}
+
+.wa-copy {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+    .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
+}
+
+[class^="lang-"]:hover .wa-copy {
+    display: block;
+}
