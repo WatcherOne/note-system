@@ -1,0 +1,11 @@
+watcher\cloud\service\NoteService.class
+watcher\cloud\controller\NoteController.class
+watcher\cloud\service\Impl\NoteServiceImpl.class
+watcher\cloud\dto\NoteQueryDto.class
+watcher\cloud\domain\convert\NoteConvertImpl.class
+watcher\cloud\domain\convert\NoteConvert.class
+watcher\cloud\dto\NoteAddDto.class
+watcher\cloud\mapper\NoteMapper.class
+watcher\cloud\Application.class
+watcher\cloud\entity\Note.class
+watcher\cloud\vo\NoteListVo.class
