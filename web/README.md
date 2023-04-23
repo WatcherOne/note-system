@@ -18,3 +18,18 @@ npm install @wangeditor/editor @wangeditor/editor-for-vue
 2. 完成整个展示页面（评论+回复+收藏+喜欢+点赞等）+详细页面
 3. 收藏+喜欢+点赞 --- 存入 localStorage
 ```
+
+proxy_set_header Host $http_host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header REMOTE-HOST $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_pass http://localhost:8080/api;
+
+nohup java -jar ruoyi.jar &
+
+nohup: no hang up, 不挂起，用于在系统后台不挂断地运行命令，退出终端不会影响程序的运行
+
+ps -ef | grep java
+杀死进程 重新部署
+kill -9 pid
+

@@ -1,12 +1,12 @@
 import request from '@/api'
 
 export function getNoteBookList () {
-    return request.get('/notebook/list')
+    return request.get('/note/getList')
 }
 
 export function addNoteBook (data) {
     return request({
-        url: '/notebook/add',
+        url: '/note/add',
         method: 'post',
         data
     })

@@ -192,7 +192,7 @@
     ```shell
     vim /etc/nginx/nginx.conf
     ```
-    > 注意 root 与 alias 的区别
+    > 注意 root 与 alias 的区别【路径配置 root /xxx/xx/ 最后一个是否有/；配置太难啦！】
 
     ![nginx配置](http://39.106.78.182/download/image/nginx配置.png)
 
@@ -213,6 +213,24 @@
     nginx -s stop           # 关闭nginx
     ```
     ![nginx状态](http://39.106.78.182/download/image/nginx状态.png)
+
+6. nginx 权限问题
+
+    ![nginx-auth](http://39.106.78.182/download/image/nginx-auth.png)
+    ```json
+    [0]: 权限【读写类】
+    [2]: 连结
+    [3]: 拥有者
+    [4]: 群组
+    [5]: 文件容量
+    [6]: 修改日期
+    [7]: 文件或目录
+    ```
+    ```shell
+    chmod 755 /xxx/xx          # * 修改当前文件下所有文件的权限 755: rwx 全放开
+    chmod 所有者:所属组 /xxx/xx  # 修改后面文件夹或文件的所有者与所属者
+    chmod -r 所有者:所属组 /xxx  # 修改子目录下的所有
+    ```
 
 ***
 
@@ -359,8 +377,8 @@ ssh root@ip
 | ---- | ---- |
 | 下载 | scp root@ip:/usr/xxx/a.txt /documents |
 | 上传 | scp /documents/a.txt root@ip:/usr/xxx |
+| 文件夹时 | -r | scp 后面加 -r |
 
-> 下载与上传文件夹中, 在 scp 后面加 -r
 ```shell
 scp -r /documents/web root@ip:/usr/documents
 ```
@@ -374,6 +392,7 @@ scp -r /documents/web root@ip:/usr/documents
 | ---- | ---- | ---- |
 | 下载 | get /usr/local/a.text /documents | 前为服务器路径，后为本地下载路径 |
 | 上传 | put /documents/a.text /usr/local  | 前为本地上传文件路径`如果找不到文件路径，直接拖动文件到终端`，后为服务器路径 |
+| 文件夹时 | -r | get/put 后面加 -r |
 
 ***
 
@@ -404,6 +423,7 @@ scp -r /documents/web root@ip:/usr/documents
 | systemctl start mysqld | 启动mysql服务 |
 | systemctl stop mysqld | 关闭mysql服务 |
 | systemctl restart mysqld | 重启mysql服务 |
+| ls -l | 查看当前路径的所有文件以及文件夹的权限 |
 
 ***
 
