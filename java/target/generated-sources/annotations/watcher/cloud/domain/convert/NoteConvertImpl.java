@@ -6,8 +6,8 @@ import watcher.cloud.entity.Note;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-23T13:19:30+0800",
-    comments = "version: 1.4.1.Final, compiler: javac, environment: Java 1.8.0_222-4-redhat (Oracle Corporation)"
+    date = "2023-04-23T13:29:07+0800",
+    comments = "version: 1.4.1.Final, compiler: javac, environment: Java 1.8.0_361 (Oracle Corporation)"
 )
 public class NoteConvertImpl implements NoteConvert {
 

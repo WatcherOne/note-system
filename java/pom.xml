@@ -13,6 +13,7 @@
   <groupId>watcher.cloud</groupId>
   <artifactId>note-system-java</artifactId>
   <version>1.0.0</version>
+  <packaging>jar</packaging>
 
   <name>java</name>
   <url>http://39.106.78.182</url>
@@ -75,6 +76,7 @@
 
   <build>
     <plugins>
+      <!--  spring boot 提供的maven打包插件  -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
