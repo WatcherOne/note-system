@@ -220,31 +220,30 @@
 
 1. 下载对应的安装包
 
-    ```
+    ```shell
     wget https://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm
     ```
 
 2. 安装用来配置mysql的 yum源的rpm包
 
-    ```
+    ```shell
     yum localinstall -y mysql57-community-release-el6-9.noarch.rpm
     ```
     > 安装成功后, 会在/etc/yum.repos.d/下会多出几个mysql的yum源的配置
 
-    [图片C]
-    > 在第三步安装报错时可能是需要如下解决
-    > 打开配置源将 6 -> 7   1 -> 0
-
-    ```
-    vim /etc/yum.repos.d/mysql-community.repo
-    ```
-    [图片D]
+    ![配置文件](http://39.106.78.182/download/image/yum-mysql.png)
     
 3. 安装 mysql
 
     ```
     yum install -y mysql-community-server --nogpgcheck  # nogpgcheck 不校验数字签名
     ```
+    > 如果遇到报错可能是: 配置源版本不对！将 6 -> 7   1 -> 0
+
+    ```
+    vim /etc/yum.repos.d/mysql-community.repo
+    ```
+    ![安装mysql-server报错](http://39.106.78.182/download/image/yum-mysql-bug.png)
 
 4. 启动 mysql
 
@@ -258,6 +257,7 @@
     ```
     grep "password" /var/log/mysqld.log
     ```
+    ![查看mysql初始密码](http://39.106.78.182/download/image/mysql-password.png)
 
 6. root 连接数据库
 
@@ -276,7 +276,7 @@
     use mysql;                   # 使用mysql这个数据库来修改管理员权限
     select user,host from user;  # 从mysql这个数据库中的user表中取出 user,host字段
     ```
-    [图片3]
+    ![mysql配置](http://39.106.78.182/download/image/mysql-init.png)
     > localhost 表示允许本地登录, 想要远程登录mysql, 需要修改权限为 %
 
     ```
@@ -339,9 +339,47 @@
 
 ***
 
+#### <span style="color:green">scp & sftp</span>
+
+> **当上传文件过大（超过500M）时，可以通过ssh来上传与下载**
+
+| 方式 | 特点 |
+| ---- | ---- |
+| scp | 较为方便，功能单一 |
+| sftp | 支持传输中断后继续传输，一般传输大文件，使用较多 |
+
+##### `scp`
+    
+> 直接打开终端, 输入如下命令, 登录远程后即可下载上传文件
+```shell
+ssh root@ip
+```
+
+| 操作 | 命令 |
+| ---- | ---- |
+| 下载 | scp root@ip:/usr/xxx/a.txt /documents |
+| 上传 | scp /documents/a.txt root@ip:/usr/xxx |
+
+> 下载与上传文件夹中, 在 scp 后面加 -r
+```shell
+scp -r /documents/web root@ip:/usr/documents
+```
+
+##### `sftp(ftp)`
+> 打开终端, 选择新建远程连接, 选择 sftp, 添加服务器 IP, 输入密码
+
+![sftp连接](http://39.106.78.182/download/image/sftp.png)
+
+| 操作 | 命令 | 描述 |
+| ---- | ---- | ---- |
+| 下载 | get /usr/local/a.text /documents | 前为服务器路径，后为本地下载路径 |
+| 上传 | put /documents/a.text /usr/local  | 前为本地上传文件路径`如果找不到文件路径，直接拖动文件到终端`，后为服务器路径 |
+
+***
+
 #### linux命令
 
-> vim / vi 命令
+> `vim / vi` 命令
 
 | 命令 | 操作 | 说明 |
 | --- | --- | --- |
