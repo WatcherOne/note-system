@@ -2,7 +2,8 @@
 node_modules
 /dist
 target
-
+/test/
+application.yml
 
 # local env files
 .env.local

@@ -34,7 +34,6 @@ ps -ef | grep java
 kill -9 pid
 
 
-
 1. 安装依赖启动报错
     ```
     SyntaxError: Invalid or unexpected token
@@ -55,4 +54,8 @@ kill -9 pid
     npm install scp2 --no-audit
     ```
 
-
+3. 修改 gitignore 文件后
+    ```
+    git rm -r --cached .   # 将文件夹从暂存区中删除
+    git add .              # 然后操作下面的步骤
+    ```
