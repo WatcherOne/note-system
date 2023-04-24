@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "scp2": "npm:null@*"
+  }
+}

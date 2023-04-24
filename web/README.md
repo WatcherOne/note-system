@@ -33,7 +33,26 @@ ps -ef | grep java
 杀死进程 重新部署
 kill -9 pid
 
-__________________
-npm install scp2 --no-audit  [加后面的，审核标准，否则安装报错]
+
+
+1. 安装依赖启动报错
+    ```
+    SyntaxError: Invalid or unexpected token
+    /node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js
+    ```
+    > 解决方法 (删除依赖，依次执行下面的语句)
+    ```shell
+    npm cache clean --force
+    npm i
+    ```
+
+2. 安装 scp2 时，需要单独安装
+    ```
+    npm ERR! Invalid Version: 0.1.0a2
+    ```
+    > 需要执行下面命令，去掉审核标准
+    ```shell
+    npm install scp2 --no-audit
+    ```
 
 
