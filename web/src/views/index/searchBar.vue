@@ -29,6 +29,7 @@ export default {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    font-size: 0;
     .wat-input {
         flex: 1;
         border-right-width: 0;

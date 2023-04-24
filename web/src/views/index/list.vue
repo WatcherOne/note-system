@@ -38,7 +38,9 @@ export default {
     .wa-collapse {
         height: 100%;
         padding-right: 10px;
+        padding-right: 0;
         overflow: auto;
+        overflow-x: hidden;
         &::-webkit-scrollbar {
             width: 7px;
         }

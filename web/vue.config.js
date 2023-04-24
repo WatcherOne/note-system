@@ -12,7 +12,7 @@ module.exports = defineConfig({
         open: false,
         proxy: {
             [process.env.VUE_APP_BASE_API]: {
-                target: `http://localhost:9002`,
+                target: `http://39.106.78.182/api`,
                 changeOrigin: true,
                 pathRewrite: {
                     ['^' + process.env.VUE_APP_BASE_API]: ''
@@ -21,7 +21,6 @@ module.exports = defineConfig({
         }
     },
     configureWebpack: {
-        name: process.env.VUE_APP_TITLE,
         devtool: process.env.NODE_DEV === 'production' ? 'false' : 'source-map',
         resolve: {
             alias: {
@@ -31,12 +30,12 @@ module.exports = defineConfig({
     },
     // configureWebpack === chainWebpack
     // 方式不同, 前者操作对象形式；后者链式编程形式
-    // chainWebpack: config => {
-    //     config.plugin('html').tap(args => {
-    //         args[0].title = process.env.VUE_APP_TITLE
-    //         return args
-    //     })
-    // }
+    chainWebpack: config => {
+        config.plugin('html').tap(args => {
+            args[0].title = process.env.VUE_APP_TITLE
+            return args
+        })
+    },
     css: {
         loaderOptions: {
             scss: {

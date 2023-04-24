@@ -10,6 +10,7 @@ import 'prismjs/themes/prism-solarizedlight.css'
 import Viewer from '@toast-ui/editor/dist/toastui-editor-viewer'
 import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css'
 import codeSyntaxHighLight from '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight-all.js'
+import { isMobile } from '@/utils/common'
 
 export default {
     props: ['content'],
@@ -25,7 +26,8 @@ export default {
             $preList.forEach($el => {
                 const $copy = document.createElement('div')
                 $copy.classList.add('wa-copy')
-                $copy.innerHTML = '<svg class="icon" aria-hidden="true"><use xlink:href="#icon-fuzhi"></use></svg>'
+                isMobile() && $copy.classList.add('is-mobile')
+                $copy.innerHTML = '<svg class="wa-icon" aria-hidden="true"><use xlink:href="#icon-fuzhi"></use></svg>'
                 $copy.addEventListener('click', (e) => {
                     e.stopPropagation()
                     e.preventDefault()

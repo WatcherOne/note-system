@@ -4,8 +4,10 @@
             <span class="collapse-header-title">{{ title || '' }}</span>
         </div>
         <div v-show="isActive" class="wa-collapse-author-info">
-            <div class="author">Watcher</div>
-            <div class="author-detail">https://github.com/WatcherOne</div>
+            <div class="author">watcher</div>
+            <div class="author-detail">
+                <a href="https://github.com/WatcherOne">https://github.com/WatcherOne</a>
+            </div>
         </div>
         <div v-show="!isActive" v-html="describe" class="wa-collapse-describe"></div>
         <div class="wa-collapse-box">
@@ -93,6 +95,9 @@ export default {
         padding: 16px 20px 0;
         font-size: 18px;
         font-weight: bold;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
     .wa-collapse-author-info {
         display: flex;
