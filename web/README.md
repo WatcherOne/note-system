@@ -33,3 +33,7 @@ ps -ef | grep java
 杀死进程 重新部署
 kill -9 pid
 
+__________________
+npm install scp2 --no-audit  [加后面的，审核标准，否则安装报错]
+
+
