@@ -1,6 +1,5 @@
 <template>
     <div ref="markdown"></div>
-    <!-- // Todo 可以去复制代码数据 -->
 </template>
 
 <script>

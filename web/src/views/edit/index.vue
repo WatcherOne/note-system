@@ -2,7 +2,7 @@
     <div class="content-container edit-container">
         <div class="top-operation">
             <div class="row">
-                <select :value="selectedType" @change="handleChangeType" class="wat-select">
+                <select :value="selectedType" @change="e => exchangeRoute(e.target.value)" class="wat-select">
                     <option value="0">富文本</option>
                     <option value="1">MarkDown</option>
                 </select>
@@ -12,50 +12,56 @@
                 </div>
             </div>
             <div class="row">
-                <input type="text" v-model.trim="title" placeholder="请输入笔记标题" class="wat-input">
+                <input type="text" v-model.trim="info.title" placeholder="请输入笔记标题" class="wat-input">
             </div>
         </div>
-        <component ref="editor" :is="isCurrentComp"></component>
+        <component
+            ref="editor"
+            :is="isCurrentComp"
+            v-model:content="info.content">
+        </component>
     </div>
 </template>
 
 <script>
-import { addNoteBook } from '@/api/common.js'
-import Editor from './editor.vue'
-import MarkDown from './markdown.vue'
+import { getNoteDetail, addNote } from '@/api/common.js'
+import WaTextarea from './textarea.vue'
+import WaMarkdown from './markdown.vue'
 
 export default {
-    components: { Editor, MarkDown },
+    components: { WaTextarea, WaMarkdown },
+    props: ['id', 'isMarkdown'],
     data() {
         return {
-            title: '',
-            content: ''
+            info: {}
         }
     },
     computed: {
-        isMarkDown() {
-            const { path } = this.$route
-            return path.includes('markdown')
-        },
         selectedType() {
-            return this.isMarkDown ? '1' : '0'
+            return this.isMarkdown ? '1' : '0'
         },
         isCurrentComp() {
-            return this.isMarkDown ? MarkDown : Editor
+            return this.isMarkdown ? WaMarkdown : WaTextarea
         }
     },
+    created() {
+        this.id && this.getDetail()
+    },
     methods: {
-        handleChangeType (e) {
-            const type = e.target.value
-            this.$router.push(type === '1' ? '/edit-markdown' : '/edit')
+        getDetail () {
+            getNoteDetail(this.id).then(res => {
+                res ? (this.info = res) : this.exchangeRoute()
+            })
         },
-        
+        exchangeRoute (type = this.selectedType) {
+            this.$router.replace(type === '1' ? '/edit-markdown' : '/edit-textarea')
+        },
         handleSave () {
             const $editor = this.$refs.editor.editor
             if (!$editor) return
             this.content = $editor.getMarkdown()
             if (this.checkParams()) {
-                addNoteBook(this.getParams()).then(res => {
+                addNote(this.getParams()).then(res => {
                     console.log(res)
                 })
             }

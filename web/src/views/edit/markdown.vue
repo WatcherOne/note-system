@@ -16,27 +16,46 @@ import codeSyntaxHighLight from '@toast-ui/editor-plugin-code-syntax-highlight/d
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax'
 
 export default {
+    name: 'WaMarkdown',
+    props: {
+        content: {
+            type: String,
+            default: ''
+        }
+    },
     data() {
         return {
             editor: null
         }
     },
+    watch: {
+        content(newCont) {
+            if (newCont) {
+                this.destroyEditor()
+                this.createEditor()
+            }
+        }
+    },
     mounted() {
-        this.init()
+        this.createEditor()
     },
     beforeUnmount() {
-        this.editor && this.editor.destroy()
+        this.destroyEditor()
     },
     methods: {
-        init () {
+        createEditor () {
             this.editor = new Editor({
                 el: document.querySelector('#editor'),
                 initialEditType: 'markdown',
+                initialValue: this.content,
                 height: '100%',
                 previewStyle: 'vertical',
                 language: 'zh-CN',
                 plugins: [codeSyntaxHighLight, colorSyntax]
             })
+        },
+        destroyEditor () {
+            this.editor && this.editor.destroy()
         }
     }
 }

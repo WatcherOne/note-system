@@ -1,7 +1,7 @@
 <template>
     <div class="wa-collapse-item">
         <div class="wa-collapse-header">
-            <span class="collapse-header-title">{{ title || '' }}</span>
+            <span @click.stop="linkToLook" class="collapse-header-title">{{ title || '' }}</span>
         </div>
         <div v-show="isActive" class="wa-collapse-author-info">
             <div class="author">watcher</div>
@@ -27,7 +27,7 @@
 
 <script>
 import RenderContent from './renderContent.vue'
-import RenderMarkdown from './renderMarkdown.vue'
+import RenderMarkdown from '@/components/RenderMarkdown'
 import ListOther from './listOther.vue'
 
 export default {
@@ -73,6 +73,10 @@ export default {
             } else {
                 this.activeNames.push(this.id)
             }
+        },
+        linkToLook () {
+            const path = this.type ? '/look-markdown' : '/look-texarea'
+            this.$router.push(`${path}/${this.id}`)
         }
     }
 }
@@ -98,6 +102,9 @@ export default {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+        .collapse-header-title {
+            cursor: pointer;
+        }
     }
     .wa-collapse-author-info {
         display: flex;

@@ -1,6 +1,6 @@
 import request from '@/api'
 
-export function getNoteBookList () {
+export function getNoteList () {
     return request({
         url: '/note/getList',
         method: 'post',
@@ -8,7 +8,11 @@ export function getNoteBookList () {
     })
 }
 
-export function addNoteBook (data) {
+export function getNoteDetail (id) {
+    return request.get(`/note/getDetail/${id}`)
+}
+
+export function addNote (data) {
     return request({
         url: '/note/add',
         method: 'post',

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { getNoteBookList } from '@/api/common.js'
+import { getNoteList } from '@/api/common.js'
 import SearchBar from './searchBar.vue'
 import List from './list.vue'
 
@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         getList () {
-            getNoteBookList().then(res => {
+            getNoteList().then(res => {
                 this.list = res || []
             })
         }
