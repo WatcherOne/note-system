@@ -3,7 +3,7 @@ node_modules
 /dist
 target
 /test/
-application.yml
+application-prod.yml
 
 # local env files
 .env.local

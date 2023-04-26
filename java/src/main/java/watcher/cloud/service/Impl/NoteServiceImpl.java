@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import watcher.cloud.domain.convert.NoteConvert;
 import watcher.cloud.dto.NoteAddDto;
 import watcher.cloud.dto.NoteQueryDto;
+import watcher.cloud.dto.NoteUpdateDto;
 import watcher.cloud.entity.Note;
 import watcher.cloud.mapper.NoteMapper;
 import watcher.cloud.service.NoteService;
@@ -31,6 +32,15 @@ public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note> implements No
         note.setCreateBy("watcher");
         note.setCreateTime(LocalDateTime.now());
         return noteMapper.insert(note);
+    }
+
+    @Override
+    public int edit(NoteUpdateDto updateDto) {
+        Note note = this.getById(updateDto.getId());
+        NoteConvert.INSTANCE.convert(updateDto, note);
+        note.setUpdateBy("watcher");
+        note.setUpdateTime(LocalDateTime.now());
+        return noteMapper.updateById(note);
     }
 
     @Override

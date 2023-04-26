@@ -3,6 +3,7 @@ package watcher.cloud.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import watcher.cloud.dto.NoteAddDto;
 import watcher.cloud.dto.NoteQueryDto;
+import watcher.cloud.dto.NoteUpdateDto;
 import watcher.cloud.entity.Note;
 import watcher.cloud.vo.NoteListVo;
 
@@ -23,6 +24,13 @@ public interface NoteService extends IService<Note> {
      * @return
      */
     int add(NoteAddDto addDto);
+
+    /**
+     * 编辑note
+     * @param updateDto
+     * @return
+     */
+    int edit(NoteUpdateDto updateDto);
 
     /**
      * 获得note详细

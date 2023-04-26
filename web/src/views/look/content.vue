@@ -28,7 +28,7 @@ export default {
         return await new Promise((resolve, reject) => {
             getNoteDetail(props.id).then(res => {
                 if (res) {
-                    // resolve({ info: res })
+                    resolve({ info: res })
                 } else {
                     alert('当前笔记已被删除,请回到首页确认!')
                     reject('当前笔记已被删除,请回到首页确认!')
@@ -81,7 +81,7 @@ export default {
     }
     .content-box {
         will-change: height;
-        padding: 0 20px;
+        padding: 15px 20px 20px;
         background: $white;
     }
 }

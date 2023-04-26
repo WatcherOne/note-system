@@ -1,0 +1,25 @@
+# Tomcat
+# Todo - -dev.yml -prod.yml
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8099
+  servlet:
+    context-path: /api
+
+spring:
+  profiles:
+    active: dev
+
+# mapper映射扫描
+# myBatis-plus
+mybatis-plus:
+  # 扫描包来让mybatis自动扫描到自定义
+  type-aliases-package: watcher.cloud.entity
+  #映射路径拼接
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    # 下划线自动转驼峰
+    map-underscore-to-camel-case: true
+    # 展示日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

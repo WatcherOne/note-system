@@ -12,7 +12,8 @@ module.exports = defineConfig({
         open: false,
         proxy: {
             [process.env.VUE_APP_BASE_API]: {
-                target: `http://39.106.78.182/api`,
+                target: 'http://localhost:8099/api',
+                // target: `http://39.106.78.182/api`,
                 changeOrigin: true,
                 pathRewrite: {
                     ['^' + process.env.VUE_APP_BASE_API]: ''

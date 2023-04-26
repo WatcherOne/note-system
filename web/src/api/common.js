@@ -14,7 +14,15 @@ export function getNoteDetail (id) {
 
 export function addNote (data) {
     return request({
-        url: '/note/add',
+        url: '/note/add-wa-zb',
+        method: 'post',
+        data
+    })
+}
+
+export function editNote (data) {
+    return request({
+        url: '/note/edit-wa-zb',
         method: 'post',
         data
     })

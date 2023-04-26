@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { getNoteDetail, addNote } from '@/api/common.js'
+import { getNoteDetail, addNote, editNote } from '@/api/common.js'
 import WaTextarea from './textarea.vue'
 import WaMarkdown from './markdown.vue'
 
@@ -33,7 +33,8 @@ export default {
     props: ['id', 'isMarkdown'],
     data() {
         return {
-            info: {}
+            info: {},
+            content: ''
         }
     },
     computed: {
@@ -61,13 +62,17 @@ export default {
             if (!$editor) return
             this.content = $editor.getMarkdown()
             if (this.checkParams()) {
-                addNote(this.getParams()).then(res => {
-                    console.log(res)
+                const params = this.getParams()
+                const action = params.id ? editNote : addNote
+                const msg = params.id ? '修改成功' : '新增成功'
+                action(params).then(() => {
+                    alert(msg)
+                    this.$router.push('/index')
                 })
             }
         },
         checkParams () {
-            if (!this.title) {
+            if (!this.info.title) {
                 alert('笔记标题不可为空')
                 return false
             }
@@ -78,7 +83,7 @@ export default {
             return true
         },
         getParams () {
-            return { title: this.title, type: +this.selectedType, content: this.content }
+            return Object.assign({}, this.info, { type: +this.selectedType, content: this.content })
         }
     }
 }
