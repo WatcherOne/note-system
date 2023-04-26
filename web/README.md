@@ -1,17 +1,10 @@
 # note-system-web
 
-> env
-1. node 16.6.0+
+> **当前环境**
+- node 16.6.0+
+- vue/cli 4+
 
-[参考文献]
-
-Editor Markdown API-URL
-[https://nhn.github.io/tui.editor/latest/]
-
-Editor wangeditor URL
-[https://www.wangeditor.com/v5/for-frame.html#%E4%BD%BF%E7%94%A8-1]
-
-> Todo
+> **Todo**
 ```
 npm install @wangeditor/editor @wangeditor/editor-for-vue
 1. 增加评论回复功能-创建表
@@ -19,8 +12,12 @@ npm install @wangeditor/editor @wangeditor/editor-for-vue
 3. 收藏+喜欢+点赞 --- 存入 localStorage
 ```
 
-`遇到的问题`
+> **参考文献**
 
+- [Editor Markdown API](https://nhn.github.io/tui.editor/latest/)
+- [Editor wangeditor API](https://www.wangeditor.com/v5/for-frame.html#%E4%BD%BF%E7%94%A8-1)
+
+> **遇到的问题**
 1. 安装依赖启动报错
     ```
     SyntaxError: Invalid or unexpected token

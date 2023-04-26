@@ -1,10 +1,10 @@
 import request from '@/api'
 
-export function getNoteList () {
+export function getNoteList (data) {
     return request({
         url: '/note/getList',
         method: 'post',
-        data: {}
+        data
     })
 }
 

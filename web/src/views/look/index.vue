@@ -21,3 +21,14 @@ export default {
     props: ['id']
 }
 </script>
+
+<style lang="scss" scoped>
+.content-container {
+    padding: 20px 10% 15px;
+}
+@media screen and (min-width: 1200px) {
+    .content-container {
+        padding: 20px 15% 15px;
+    }
+}
+</style>

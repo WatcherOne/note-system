@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         getList () {
-            getNoteList().then(res => {
+            getNoteList({ keywords: this.keywords }).then(res => {
                 this.list = res || []
             })
         }

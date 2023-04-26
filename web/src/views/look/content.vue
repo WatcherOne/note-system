@@ -42,6 +42,9 @@ export default {
 <style lang="scss" scoped>
 .look-container {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     .title {
         font-size: 26px;
         color: green;
@@ -83,6 +86,8 @@ export default {
         will-change: height;
         padding: 15px 20px 20px;
         background: $white;
+        flex: 1;
+        overflow: auto;
     }
 }
 </style>
