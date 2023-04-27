@@ -20,8 +20,8 @@ export default {
 <style lang="scss" scoped>
 .layout-container {
     .header-container {
-        height: 60px;
-        line-height: 60px;
+        height: 50px;
+        line-height: 50px;
     }
     .main-container {
         height: calc(100% - 60px);
